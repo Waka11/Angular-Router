@@ -1,0 +1,18 @@
+.navik {
+  background-color: darkslateblue;
+  border-radius: 0 0 15px 15px;
+}
+.navik li a {
+  color: azure !important;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.navik li a:hover {
+  color: lightslategray !important;
+}
+.navik li a.active{
+    color: gold!important;
+}
+.nav-item{
+    padding: 5px;
+}

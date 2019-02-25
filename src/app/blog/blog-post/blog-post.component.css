@@ -1,0 +1,21 @@
+.cardy{
+    background-color: blueviolet;
+    border-radius: 15px;
+    margin: 10px;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+}
+.cardy p, .cardy h3, .cardy a{
+    width: fit-content;
+}
+.cardy p:hover,.cardy h3:hover,.cardy a:hover{
+    color: azure;
+    cursor: pointer;
+}
+.cardy a{
+    font-weight: bolder;
+    align-self: flex-end;
+    text-decoration: none;
+    color: gold;
+}
