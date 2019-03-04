@@ -1,4 +1,12 @@
 <div class="container">
-  Blogio
+  <br>
+  <div class="jumbotron jumbotron-fluid chambo">
+    <div class="container">
+      <h1 class="display-4">Blogio</h1>
+    </div>
+  </div>
+  <input type="text" class="form-control" placeholder="enter title" [(ngModel)]='title'> <br>
+  <input type="text" class="form-control" placeholder='enter content' [(ngModel)]='content'> <br>
+  <div class="chamboIn"><button class="btn btn-primary" (click)='AddPost()'>Add</button> <p [class]="classname">{{error}}</p></div>
   <app-blog-post *ngFor="let Item of BlogPost" [Posts]="Item"> </app-blog-post>
 </div>

@@ -1,0 +1,19 @@
+.chambo {
+  border-radius: 15px;
+  border: 3px solid gold;
+  text-align: center;
+}
+.chambo:hover {
+  cursor: pointer;
+  color: darkslateblue;
+  background-color: gold;
+  border: 3px solid lightslategray;
+}
+.chamboIn{
+  height: 66px;
+  display: flex;
+  justify-content: space-between;
+}
+.btn{
+  width: 66px;
+}
