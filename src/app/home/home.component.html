@@ -1,3 +1,12 @@
 <div class="container">
-  Home
+  <div class="card cards" *ngFor="let Item of currency">
+    <div class="card-header">
+      Currency: {{Item.ccy}} <br>
+      to: {{Item.base_ccy}}
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Buy: {{Item.buy}}</li>
+      <li class="list-group-item">Sale: {{Item.sale}}</li>
+    </ul>
+  </div>
 </div>

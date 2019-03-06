@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WeatherService } from "../weather.service";
+
 
 @Component({
   selector: 'app-features',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeaturesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private weatherservice: WeatherService) { }
+
+  weather:any = {};
+  degreez = null;
 
   ngOnInit() {
+    this.weatherservice.getData().subscribe((response) => {
+      console.log(response);
+      this.weather = response;
+      this.degreez = Math.floor(this.weather.main.temp - 273.15);
+    });
   }
 
 }

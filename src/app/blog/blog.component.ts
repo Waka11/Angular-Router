@@ -3,8 +3,6 @@ import {
   OnInit,
   Input,
   Output,
-  OnChanges,EventEmitter,
-  SimpleChanges
 } from "@angular/core";
 import { PostService } from "../post.service";
 
@@ -36,6 +34,7 @@ export class BlogComponent implements OnInit {
     if (this.title === "" || this.content === "") {
       this.error = "Please enter Blog Info!!!";
       this.classname = "alert alert-warning";
+      console.log("Рагуль, заповни поля!!!")
     } else {
       this.service.BlogPost.push(object);
       this.id = null;
