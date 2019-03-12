@@ -15,6 +15,7 @@ import { ErrorPageComponent } from "./error-page/error-page.component";
 import { PostService } from "./post.service";
 import { RequestService } from "./request.service";
 import { WeatherService } from "./weather.service";
+import { DatabaseService } from "./database.servise";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { WeatherService } from "./weather.service";
     ErrorPageComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [PostService, RequestService, WeatherService],
+  providers: [PostService, RequestService, WeatherService, DatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

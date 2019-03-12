@@ -1,19 +1,13 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { PostService } from "../post.service";
+import { DatabaseService } from "../database.servise";
 
 @Component({
   selector: "app-blog",
   templateUrl: "./blog.component.html",
-  styleUrls: ["./blog.component.css"],
-  //providers: [PostService]
+  styleUrls: ["./blog.component.css"]
 })
 export class BlogComponent implements OnInit {
-  //@ts-ignore
   BlogPost = [];
 
   title = "";
@@ -22,7 +16,10 @@ export class BlogComponent implements OnInit {
   error = "";
   classname = "";
 
-  constructor(private service: PostService) {}
+  constructor(
+    private service: PostService,
+    private DBservice: DatabaseService
+  ) {}
 
   AddPost() {
     console.log("clicked");
@@ -34,9 +31,13 @@ export class BlogComponent implements OnInit {
     if (this.title === "" || this.content === "") {
       this.error = "Please enter Blog Info!!!";
       this.classname = "alert alert-warning";
-      console.log("Рагуль, заповни поля!!!")
+      console.log("Рагуль, заповни поля!!!");
     } else {
-      this.service.BlogPost.push(object);
+      //this.BlogPost.push(object);
+      this.DBservice.DataSave(object).subscribe(
+        response => console.log(response),
+        error => console.log(error)
+      );
       this.id = null;
       this.content = "";
       this.title = "";
@@ -45,7 +46,13 @@ export class BlogComponent implements OnInit {
     }
   }
 
+  // SaveToBase() {
+  //   this.DBservice.DataSave(this.BlogPost).subscribe(
+  //     response => console.log(response),
+  //     error => console.log(error)
+  //   );
+  // }
+
   ngOnInit() {
-    this.BlogPost = this.service.BlogPost;
   }
 }

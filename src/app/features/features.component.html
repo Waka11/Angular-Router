@@ -1,10 +1,28 @@
 <div class="container">
-  <ul class="list-group">
-    <li class="list-group-item">Country: {{weather.sys.country}}</li>
-    <li class="list-group-item active">City: {{weather.name}}</li>
-    <li class="list-group-item">Temperature: {{degreez}}&deg;C</li>
-    
-    <li class="list-group-item"></li>
-    <li class="list-group-item"></li>
-  </ul>
+  <div class="classy">
+    <input type="text" [(ngModel)]="selectedCity" class="form-control" />
+    <button (click)="onChange()" class="btn btn-primary">Find</button>
+  </div>
+  <div *ngIf="degreez === null; else valid" class="alert alert-warning">
+    Please, write the name of city!
+  </div>
+  <ng-template #valid>
+      <ul class="list-group">
+        <li class="list-group-item" class="alert alert-primary">
+          City:&nbsp; {{ weatherForecast.name }}
+        </li>
+        <li class="list-group-item" class="alert alert-secondary">
+          Country:&nbsp; {{ weatherForecast.sys.country }}
+        </li>
+        <li class="list-group-item" class="alert alert-secondary">
+          Temperature:&nbsp; {{ degreez }}&deg;C
+        </li>
+        <li class="list-group-item" class="alert alert-secondary">
+          Weather:&nbsp; {{ weather }}&nbsp; <img src="http://openweathermap.org/img/w/{{ icon }}.png" alt="{{ weather }}" />
+        </li>
+        <li class="list-group-item" class="alert alert-secondary">
+          Wind speed:&nbsp; {{ weatherForecast.wind.speed }}m/s
+        </li>
+      </ul>
+  </ng-template>
 </div>
