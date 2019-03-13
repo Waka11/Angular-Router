@@ -16,6 +16,8 @@ import { PostService } from "./post.service";
 import { RequestService } from "./request.service";
 import { WeatherService } from "./weather.service";
 import { DatabaseService } from "./database.servise";
+import { DocsService } from "./docs.service";
+import { DocsItemComponent } from './docs/docs-item/docs-item.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,17 @@ import { DatabaseService } from "./database.servise";
     BlogPostComponent,
     HomeComponent,
     BlogSinglePostComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    DocsItemComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [PostService, RequestService, WeatherService, DatabaseService],
+  providers: [
+    PostService,
+    RequestService,
+    WeatherService,
+    DatabaseService,
+    DocsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
