@@ -1,6 +1,6 @@
 <div class="container">
   <br />
-  <div class="jumbotron jumbotron-fluid chambo">
+  <div class="jumbotron jumbotron-fluid chambo" (click)="GetInfo()">
     <div class="container">
       <h1 class="display-4">B l o g i o</h1>
     </div>
@@ -23,5 +23,5 @@
     <button class="btn btn-primary" (click)="AddPost()">Add</button>
     <p [class]="classname">{{ error }}</p>
   </div>
-  <app-blog-post *ngFor="let Item of BlogPost" [Posts]="Item"> </app-blog-post>
+  <app-blog-post *ngFor="let Item of BlogPost"  [Posts]="Item"> </app-blog-post>
 </div>

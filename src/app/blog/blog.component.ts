@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { PostService } from "../post.service";
+//import { PostService } from "../post.service";
 import { DatabaseService } from "../database.servise";
 
 @Component({
@@ -8,7 +8,7 @@ import { DatabaseService } from "../database.servise";
   styleUrls: ["./blog.component.css"]
 })
 export class BlogComponent implements OnInit {
-  BlogPost = [];
+  BlogPost: any = [];
 
   title = "";
   id = Math.floor(Math.random() * 101);
@@ -17,7 +17,7 @@ export class BlogComponent implements OnInit {
   classname = "";
 
   constructor(
-    private service: PostService,
+    //private service: PostService,
     private DBservice: DatabaseService
   ) {}
 
@@ -46,13 +46,21 @@ export class BlogComponent implements OnInit {
     }
   }
 
-  // SaveToBase() {
-  //   this.DBservice.DataSave(this.BlogPost).subscribe(
-  //     response => console.log(response),
-  //     error => console.log(error)
-  //   );
-  // }
+  GetInfo(){
+    let NewBlogPost = [];
+    NewBlogPost = Object.keys(this.DBservice.FireArr).map(key => {
+      this.BlogPost.push(this.DBservice.FireArr[key]);
+      return this.BlogPost;
+    });
+
+
+
+    console.log("BLOGPOST", this.BlogPost);
+
+  }
 
   ngOnInit() {
+    setInterval(()=>{this.DBservice.DataGet(this.DBservice.url);},1000 )
+    
   }
 }

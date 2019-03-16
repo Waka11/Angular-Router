@@ -10,5 +10,5 @@ export class DocsItemComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {console.log("INFOS CONTENT", this.Infos)}
+  ngOnInit() {}
 }
